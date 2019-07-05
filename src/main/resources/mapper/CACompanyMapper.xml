@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yzc.bigdata.competitor.dao.CACompanyMapper">
+    <resultMap type="Integer" id="countMap">
+        <result column="total" jdbcType="INTEGER" javaType="Integer" />
+    </resultMap>
+
+    <resultMap type="com.yzc.bigdata.competitor.model.CACompany" id="resultMap2"> </resultMap>
+
+
+    <select id="getCompanyNameByName" resultType="com.yzc.bigdata.competitor.model.CACompany">
+      select *   FROM T_CACompany where companyName=#{companyName}
+
+    </select>
+        <select id="getStaffInfoByName" resultType="com.yzc.bigdata.competitor.model.Staff">
+     select *   FROM T_CAStaff where companyName=#{companyName}
+</select>
+    <select id="getQualificationInfoByName" resultType="com.yzc.bigdata.competitor.model.CAQualifications">
+      select *   FROM T_CAQualifications where companyName=#{companyName}
+    </select>
+    <select id="getCreditInfoById" resultType="com.yzc.bigdata.competitor.model.Credit">
+      select  *   FROM T_CACredit where companyId=#{companyId}
+    </select>
+    <select id="getGoodRecordsInfoByName" resultType="com.yzc.bigdata.competitor.model.CAGoodRecords">
+
+        select  *   FROM  T_CAGoodRecords where companyName=#{companyName}
+    </select>
+    <select id="getBadRecordsInfoById" resultType="com.yzc.bigdata.competitor.model.CABadRecords">
+       select  *   FROM  dbo.T_CABadRecords where companyId=#{companyId}
+    </select>
+</mapper>

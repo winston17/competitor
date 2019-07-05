@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: competitor
+  data:
+    elasticsearch:
+      cluster-nodes: 192.168.18.205:9300,192.168.18.206:9300,192.168.18.207:9300,192.168.18.208:9300
+      cluster-name: bigdata
+      repositories:
+        enabled: true
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://192.168.8.107:1433;DatabaseName=YOUZCBigData
+    username: youzhicaisa
+    password: qwertyuiop!@#$%^*()0987654321
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 1
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: true
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+
+
+#      neo4j:
+#        uri: http://192.168.18.229:7687
+#        username: neo4j
+#        password: 123456
+
+server:
+  port: 8003
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+  mapper-locations: classpath:mapper/*.xml
